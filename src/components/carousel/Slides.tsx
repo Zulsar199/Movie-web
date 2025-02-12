@@ -16,8 +16,8 @@ export const Slides = () => {
   const [popularMovie, setPopularMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    getMoviesByCategory("popular").then((response) => {
-      setPopularMovies(response.results);
+    getMoviesByCategory("popular", 1).then((response) => {
+      setPopularMovies(response?.results);
     });
   }, []);
 
@@ -31,7 +31,7 @@ export const Slides = () => {
         }}
       >
         <CarouselContent>
-          {popularMovie.map((movie, index) => {
+          {popularMovie?.map((movie, index) => {
             const imageUrl =
               process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL +
               "/original" +

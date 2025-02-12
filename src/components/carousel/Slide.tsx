@@ -25,7 +25,6 @@ export const Slide = ({
 
   useEffect(() => {
     fetchData(`/movie/${movie.id}/videos?language=en-US`).then((response) => {
-      console.log(response?.results[0]?.key);
       setMovieVideo(response?.results[0]?.key);
     });
   }, []);

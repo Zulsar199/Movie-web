@@ -9,10 +9,10 @@ export const fetchData = async (endpoint: string) => {
   }
 };
 
-export const getMoviesByCategory = async (category: string) => {
+export const getMoviesByCategory = async (category: string, page: number) => {
   try {
     const { data } = await axiosInstance.get(
-      `/movie/${category}?language=en-US&page=1`
+      `/movie/${category}?language=en-US&page=${page}`
     );
     return data;
   } catch (error) {
