@@ -19,3 +19,14 @@ export const getMoviesByCategory = async (category: string, page: number) => {
     console.log(`Error fetching data`, error);
   }
 };
+
+export const getSearchedMovies = async (searchValue: string, page: number) => {
+  try {
+    const { data } = await axiosInstance.get(
+      `/search/movie?query=${searchValue}&language=en-US&page=${page}`
+    );
+    return data;
+  } catch (error) {
+    console.log(`Error fetching data`, error);
+  }
+};
